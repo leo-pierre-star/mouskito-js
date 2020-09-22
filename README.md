@@ -32,6 +32,8 @@ On reécrit l'évènement en mode jquery
 
 On remplace la fonction vérification avec un évènement onSubmit de jquery sans toucher au HTML
 
+#### La branche les-evenements-jquery contiens exactement le même contenu que précédemment avec la syntaxe jQuery
+
 ### Branch sum_elements-jquery
 j'ai rajouté un id sur la balise form du 2ème formulaire pour pouvoir le sélectionner
 
