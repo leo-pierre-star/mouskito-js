@@ -97,21 +97,25 @@
 
         console.log(test.nextSibling.nodeName)
 
+
+
         var nouvelle = document.createElement("li");
+
+        var liTexte = document.createTextNode('node4');
+        nouvelle.appendChild(liTexte);
 
         console.log(nouvelle)
 
 
-        var liTexte = document.createTextNode('ceci est un test');
-        nouvelle.appendChild(liTexte);
 
 
-        document.getElementsByTagName('li')[1].append(nouvelle)
+
+
         // ------- EVENEMENT CLICK
 
         // on selectionne la div1 dans le DOM que l'on stock dans une variable
         var div1 = document.getElementById('div1');
-        //console.info(div1);
+        console.info(div1);
 
         // on associe l'évènement 'click' à la div1 que nous venons de selectionner, et pour chaque clic, la fonction anonyme déclarée s'execute automatiquement 
         div1.onclick = function () {
