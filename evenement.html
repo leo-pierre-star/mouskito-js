@@ -1,44 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <title>Evènement JAVASCRIPT</title>
     <style>
-        #div1{
+        #div1 {
             background: darkblue;
         }
 
-        #div4{
+        #div4 {
             transition: 1s;
             width: 200px;
             border-radius: 15px;
             /* position: relative; */
             margin: 0 auto;
         }
-        #div4:hover{
+
+        #div4:hover {
             border-radius: 15px;
             width: 200px;
-            
+
         }
 
-        #div3{
+        #div3 {
             color: #ffffff;
         }
 
-        label{
+        label {
             float: left;
             width: 150px;
         }
 
-        input{
+        input {
             border-radius: 5px;
             height: 30px;
         }
 
-        #submit{
+        #submit {
             height: 50px;
             width: 150px;
             background: lightblue;
@@ -46,40 +51,51 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container col-md-6 offset-md-3">
         <h2 class="display-4 text-center" onclick="titleClick();">Click</h2>
-        <div id="div1" class="p-4 text-white text-center">Click</div><hr class="py-4">
+        <div id="div1" class="p-4 text-white text-center">Click</div>
+        <hr class="py-4">
 
         <h2 class="display-4 text-center">dbclick</h2>
-        <div id="div2" class="bg-success p-4 text-white text-center">dbclick</div><hr class="py-4">
+        <div id="div2" class="bg-success p-4 text-white text-center">dbclick</div>
+        <hr class="py-4">
 
         <h2 class="display-4 text-center">mouseover</h2>
-        <div id="div3" class="bg-warning p-4 text-center">mouseover</div><hr class="py-4">
+        <div id="div3" class="bg-warning p-4 text-center">mouseover</div>
+        <hr class="py-4">
 
         <h2 class="display-4 text-center">mouseout</h2>
         <div id="div4" class="bg-info p-4 text-white text-center">mouseout</div>
         <hr class="py-4">
 
         <h2 class="display-4 text-center ">mousedown</h2>
-        <div id="div5" class="bg-danger p-4 text-white text-center">mousedown</div><hr class="py-4">
+        <div id="div5" class="bg-danger p-4 text-white text-center">mousedown</div>
+        <hr class="py-4">
 
-        <h2 class="display-4 text-center ">Keydown</h2><hr>
+        <h2 class="display-4 text-center ">Keydown</h2>
+        <hr>
         <form action="">
             <label for="form1">Keydown</label>
             <input type="text" id="form1">
-        </form><hr> 
+        </form>
+        <hr>
 
-        <h2 class="display-4 text-center ">Select</h2><hr>
+        <h2 class="display-4 text-center ">Select</h2>
+        <hr>
         <form action="">
             <label for="form2">Select</label>
             <input type="text" id="form2">
-        </form><hr> 
+        </form>
+        <hr>
 
-        <h2 class="display-4 text-center ">Submit</h2><hr>
+        <h2 class="display-4 text-center ">Submit</h2>
+        <hr>
         <form action="" id="form3">
             <input type="submit" id="submit" value="enregistrer">
-        </form><hr> 
+        </form>
+        <hr>
     </div>
 
 
@@ -92,56 +108,62 @@
 
     <script>
 
-        var test = document.getElementsByTagName("ul")[0].firstChild;
+        // var test = document.getElementsByTagName("ul")[0].firstChild;
         //var test2 = document.previousSibling.nodeName;
+        var test = $('ul:first ul:first-child')
+        // console.log(test.nextSibling.nodeName)
 
-        console.log(test.nextSibling.nodeName)
+        var ul = $("ul").first()
+        ul.append("<li> node4 </li>") // insere a la fin
 
-        var nouvelle = document.createElement("li");
+        $("ul:first li:first-child").after("<li> node4 </li>"); //insere apre premier li
 
-        var liTexte = document.createTextNode('node4');
-        nouvelle.appendChild(liTexte);
 
-        console.log(nouvelle)
+        // var nouvelle = document.createElement("li");
 
-        document.getElementsByTagName('li')[2].append(nouvelle)
+        // var liTexte = document.createTextNode('node4');
+        // nouvelle.appendChild(liTexte);
+
+        // console.log(nouvelle)
+
+        // document.getElementsByTagName('li')[2].append(nouvelle)
         // ------- EVENEMENT CLICK
 
         // on selectionne la div1 dans le DOM que l'on stock dans une variable
-        var div1 = document.getElementById('div1');
+        var div1 = $('#div1');
         console.info(div1);
 
         // on associe l'évènement 'click' à la div1 que nous venons de selectionner, et pour chaque clic, la fonction anonyme déclarée s'execute automatiquement 
-        div1.onclick = function () {
+        div1.click (function () {
             //alert('Div1 (test1) - évènement CLICK');
-        }
+        })
         //----------------------------------------------------------------------
         // On selectionne la div1 et dans le même temps on associe l'évènement 'click' et la fonction anonyme s'execute automatiquement
-        document.getElementById('div1').onclick = function () {
+        $('#div1').click(function () {
             //alert('Div1 (test2) - évènement CLICK');
-            this.style.backgroundColor = 'purple';
-        }
+            $(this).css('background-color', 'purple');
+        })
 
         //----------------------------------------------------------------------
         // addEventListener() fonction prédéfinie qui fait partie de l'objet selectionné (div1) et qui permet d'associer un évènement
         // addEventListener() : 1er argument : l'évènement | 2ème arguement : le code à executer à l'évènement 
-        document.getElementById('div1').addEventListener('click', function(){
-            //alert('Div1 (test3) - évènement CLICK');
-        });
+        // $('#div1').addEventListener('click', function () {
+        //alert('Div1 (test3) - évènement CLICK');
+        // });
 
         //----------------------------------------------------------------------
-        document.getElementById('div1').addEventListener('click', div1);
-        function div1() { alert('Div1 (test4) - évènement CLICK'); }  
+        // $('#div1').addEventListener('click', div1);
+        // function div1() { alert('Div1 (test4) - évènement CLICK'); }
 
         //---------- EVENEMENT DBLCLICK
         // Exo : selectionner la div id 'div2', associer l'évènement double click et afficher une alerte en cas de double clic sur la div
-        document.getElementById('div2').ondblclick = function() {
-            this.style.boxShadow = "13px 17px 23px -1px rgba(0,0,0,0.75)";
-            this.style.letterSpacing = "15px";
-            this.style.borderRadius = "15px";
-            this.style.cursor = "pointer";
-            this.style.transition = "all 2s";
-        }
+        $('#div2').dblclick(function () {
+            $(this).css('box-shadow', '13px 17px 23px -1px rgba(0,0,0,0.75)');
+            $(this).css('letter-spacing', '15px');
+            $(this).css('border-radius', '15px');
+            $(this).css('cursor', 'pointer');
+            $(this).css('transition', 'all 2s');
+        })
 
         // document.getElementById('div1').addEventListener('dblclick', function()    {
         //     this.style.fontSize = "xx-large";
@@ -151,71 +173,74 @@
         // } 
 
         //----------- EVENEMENT MOUSEOVER
-        document.getElementById('div3').onmouseover = function() {
-            this.style.boxShadow = "13px 17px 23px -1px rgba(0,0,0,0.75)";
-            this.style.letterSpacing = "15px";
-            this.style.borderRadius = "15px";
-            this.style.cursor = "pointer";
-            this.style.transition = "all 2s";
-            this.style.color = "#000000"; // this dans ce cas représente l'objet 'div3' que nous avons selectionné dans le DOM
-        }
+        $('#div3').mouseover(function () {
+            $(this).css('box-shadow', '13px 17px 23px -1px rgba(0,0,0,0.75)');
+            $(this).css('letter-spacing', '15px');
+            $(this).css('border-radius', '15px');
+            $(this).css('cursor', 'pointer');
+            $(this).css('transition', 'all 2s');
+            $(this).css('color', '#000000');
+            // this dans ce cas représente l'objet 'div3' que nous avons selectionné dans le DOM
+        })
         //----------- EVENEMENT MOUSEOUT
-        document.getElementById('div3').onmouseout = function() {
-            this.style.boxShadow = "none";
-            this.style.letterSpacing = "0";
-            this.style.borderRadius = "0";
-            this.style.cursor = "pointer";
-            this.style.transition = "all 2s";
-            this.style.color = "#ffffff";
-        }
+        $('#div3').mouseout(function () {
+            $(this).css('box-shadow', 'none');
+            $(this).css('letter-spacing', '0px');
+            $(this).css('border-radius', '0px');
+            $(this).css('cursor', 'pointer');
+            $(this).css('transition', 'all 2s');
+            $(this).css('color', '#ffffff');
+
+        })
 
         //----------- EVENEMENT MOUSEOUT
-        document.getElementById('div4').onmouseout = function() {
-            this.style.width = "200px";
-            this.style.transition = "all 1s";
-            this.style.boxShadow = "13px 17px 23px -1px rgba(0,0,0,0.75)";
-            this.style.transform = "rotate(7deg)";
-            this.style.letterSpacing = "0px"; 
-            // this.style.transform = "scale(1.5)";
-            this.style.borderRadius = "15px";
-            this.style.position = "relative";
-        }
+        $('#div4').mouseout(function () {
+            $(this).css('width', '200px');
+            $(this).css('transition', 'all 1s');
+            $(this).css('box-shadow', '13px 17px 23px -1px rgba(0,0,0,0.75)');
+            $(this).css('transform', 'rotate(7deg)');
+            $(this).css('letter-spacing', '0px');
+            $(this).css('border-radius', '15px');
+            $(this).css('position', 'relative');
+         
+        })
 
-        document.getElementById('div4').onmouseover = function() {
-            this.style.width = "300px";
-            this.style.transition = "all 1s";
-            this.style.boxShadow = "none";
-            this.style.transform = "rotate(0deg)";
-            this.style.letterSpacing = "15px";
-            this.style.transform = "0";
-            this.style.borderRadius = "0";
-            this.style.position = "relative";    
-        }
+        $('#div4').mouseover(function () {
+            $(this).css('width', '300px');
+            $(this).css('transition', 'all 1s');
+            $(this).css('box-shadow', 'none');
+            $(this).css('transform', 'rotate(0deg)');
+            $(this).css('letter-spacing', '15px');
+            $(this).css('transform', '0');
+            $(this).css('border-radius', '0px');
+            $(this).css('position', 'relative');
+        })
 
         //----------- EVENEMENT MOUSEDOWN
-        document.getElementById('div5').onmousedown = function() {
+        $('#div5').mousedown(function () {
             alert('Evènement div5 MOUSEDOWN');
-        }
+        })
 
         //----------- EVENEMENT KEYDOWN
         // KEYDOWN se déclenche lorsque l'on presse un touche du clavier dans le champ input
-        document.getElementById('form1').onkeydown = function() {
+        $('#form1').keydown(function () {
             alert('Evènement KEYDOWN form1 !!');
-        }
+        })
 
         //---------- EVENEMENT SELECT
-         // SELECT se déclenche lorsque l'on selectionne le contenu d'un input
-        document.getElementById('form2').onselect = function() {
+        // SELECT se déclenche lorsque l'on selectionne le contenu d'un input
+        $('#form2').select(function () {
             alert('Evènement SELECT form2 !!');
-        }
+        })
 
         //---------- EVENEMENT SUBMIT
         // event : représente l'évènement 'submit'
-        document.getElementById('form3').onsubmit = function(event) {
+        $('#form3').submit(function (event) {
             event.preventDefault(); // preventDefault() est une fonction prédéfinie qui permet d'annuler le comportement du bouton 'submit' qui a pour rôle de recharger le code / la page 
             alert('Evènement SUBMIT form3 !!');
-        }
+        })
 
     </script>
 </body>
+
 </html>
