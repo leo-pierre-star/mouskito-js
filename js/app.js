@@ -13,28 +13,26 @@ tel.addEventListener('keypress', function (e) {
 
 function verification() {
 
-	if (document.formul.nom.value == "") {
+	if ($('#nom').val() == "") {
 		alert("Ce champs nom ne doit pas vide");
 
-		document.formul.nom.focus();
-		document.formul.nom.style.backgroundColor = "red";
+		$('#nom').focus();
+		$('#nom').css('background-color', 'red');
 
 		return false;
 	}
 
-	if (document.formul.prenom.value == "") {
-		alert("Ce champs prénomne doit pas vide");
-
-		document.formul.prenom.focus();
-		document.formul.prenom.style.backgroundColor = "red";
+	if ($('#prenom').val() == '') {
+		$('#prenom').focus();
+		$('#prenom').css('background-color', 'red');
 
 		return false;
 	}
 
 	var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,3})+$/;
 
-	if (!regex.test(document.getElementById('email').value)) {
-		alert("Ce champs Email ne doit pas vide");
+	if (!regex.test($('#email').val())) {
+		alert("Ce champs Email ne doit pas vide et il doit correspondre au format email");
 
 		document.formul.email.focus();
 		document.formul.email.style.backgroundColor = "red";
